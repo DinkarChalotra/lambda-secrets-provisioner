@@ -5,7 +5,7 @@ S3_OBJECT_VERSION ?= $$(aws s3api list-object-versions --bucket $(S3_BUCKET) --p
 
 build: clean
 	@ echo "Building $(FUNCTION_NAME).zip..."
-	@ cd src && pip install -t vendor/ -r requirements.txt --upgrade
+	@ cd src && pip2 install -t vendor/ -r requirements.txt --upgrade
 	@ mkdir -p build
 	@ cd src && zip -9 -r ../build/$(FUNCTION_NAME).zip * -x *.pyc
 	@ echo "Built build/$(FUNCTION_NAME).zip"
